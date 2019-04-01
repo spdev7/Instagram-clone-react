@@ -11,12 +11,7 @@ export default class Header extends Component {
       <Router>
       <header>
         <Link className="link" to="/">
-          <FontAwesomeIcon
-            icon="home"
-            color="#000"
-            size="sm"
-
-          /></Link>
+         <i class="fab fa-instagram"/></Link>
         <Link className="link" to="/Search"><FontAwesomeIcon
           icon="search"
           color="#000"

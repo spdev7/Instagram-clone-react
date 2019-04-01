@@ -1,35 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { render } from 'react-dom';
-import Header from './Header'
-import Hello from './Hello';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-import './style.css';
-import Card from './Card'
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch, faHeart, faUser, faHome } from '@fortawesome/free-solid-svg-icons';
-library.add(faSearch, faUser, faHeart, faHome);
-import Profile from './Profile';
+import "./style.scss";
+import { Route, BrowserRouter as Router, Link } from "react-router-dom";
+import Header from "./Header/Header";
+import Profile from "./Profile/Profile";
+import Card from "./Card/Card";
+
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
-
   render() {
     return (
-      <div>
-        <Router>
-          <Route path='/' component={Header} />
-          <Route path='/Profile' exact component={Profile} />
-          <Route path='/' exact component={Card} />
-        </Router>
-      </div>
+      <Router>
+        <div>
+          <header className="h11">
+            <Link className="link1" to="/">
+              <i class="fab fa-instagram" />
+            </Link>
+            <Link className="link1" to="/Search">
+              <i class="fas fa-search" />
+            </Link>
+            <Link className="link1" to="/Liked">
+              <i class="far fa-heart" />
+            </Link>
+            <Link className="link1" to="/profile">
+              <i class="far fa-user" />
+            </Link>
+          </header>
+
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/" component={Card} />
+        </div>
+      </Router>
     );
   }
 }
+
+
 
 render(<App />, document.getElementById('root'));
